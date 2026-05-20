@@ -21,3 +21,9 @@ The resulting dataset retains physical electromagnetic consistency while explici
 - **Multi-level annotations**: SAR images, quarter-power reflectivity maps, target shadow masks, and orthographic projection masks
 - **Class-aligned with SAMPLE**: 10 target classes (2S1, BMP2, BTR70, M1, M2, M35, M548, M60, T72, ZSU23)
 - **Open-source & white-box**: Full construction pipeline, desktop-grade simulation (CST), no HPC require
+> **🗂️ Note**: The full dataset will be publicly released upon paper publication. For now, please refer to the [example](./example) folder for sample data.
+> <div align=center>
+  <img src="example/Approx SAMPLE-Complex/bmp2_synth_A_elevDeg_016_azCenter_6.004928912572714_2difft.png" width="100%"/>
+  <img src="example/Approx SAMPLE-Complex/m2_synth_A_elevDeg_014_azCenter_18.985293283579836_2difft.png" width="100%"/>
+  <img src="example/Approx SAMPLE-Complex/m60_synth_A_elevDeg_015_azCenter_29.01557484299443_2difft.png" width="100%"/>
+</div>
