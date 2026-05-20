@@ -1,6 +1,6 @@
 # Approx SAMPLE: Towards Non-Cooperative  SAR-ATR via Controllable Approximate Simulation
 <div align=center>
-<img src="pipline.png" width="1500"/>
+<img src="pipeline.png" width="1500"/>
 </div>
 ## 📖 Introduction
 
