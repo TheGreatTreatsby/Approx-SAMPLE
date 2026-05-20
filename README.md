@@ -1,4 +1,7 @@
 # Approx SAMPLE: Towards Non-Cooperative  SAR-ATR via Controllable Approximate Simulation
+<div align=center>
+<img src="pipline.png" width="1500"/>
+</div>
 ## 📖 Introduction
 
 **Approx SAMPLE** is a benchmark dataset designed explicitly for **Non-Cooperative SAR Automatic Target Recognition (SAR-ATR)**.  
