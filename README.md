@@ -2,7 +2,7 @@
 <div align=center>
 <img src="pipeline.png" width="1500"/>
 </div>
-## 📖 Introduction
+### 📖 Introduction
 
 **Approx SAMPLE** is a benchmark dataset designed explicitly for **Non-Cooperative SAR Automatic Target Recognition (SAR-ATR)**.  
 While existing datasets like SAMPLE rely on precisely-aligned synthetic and measured SAR image pairs (exact 3D models, precise registration), such ideal assumptions are unrealistic in non-cooperative scenarios where target geometry, material, and background are uncertain.
