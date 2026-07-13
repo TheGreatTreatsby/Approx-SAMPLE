@@ -41,7 +41,7 @@ This simple yet effective design achieves **~75% accuracy** on Approx SAMPLE. Mo
 
 We interpret this as strong evidence that:
 - **Strong domain-shift benchmarks** (like Approx SAMPLE) can **positively promote** cross-domain adaptation algorithms — the improvements learned to overcome severe shifts on Approx SAMPLE **transfer beneficially** to SAMPLE, where the domain gap is milder.
-- Conversely, it further **corroborates the structural limitations of SAMPLE**: once the stylistic discrepancy is bridged, the highly-registered simulated–real pairs in SAMPLE behave as if drawn from the same distribution. This suggests that recognition algorithms may **implicitly rely on the registration shortcut** embedded in SAMPLE, rather than learning truly robust semantic features.
+- Conversely, it further **corroborates the structural limitations of SAMPLE**: once the stylistic discrepancy is bridged, the highly-registered simulated–real pairs in SAMPLE behave as if drawn from the same distribution, lending further support to the view that recognition algorithms benefit to a considerable extent from the registration shortcut inherent in SAMPLE.
 
 ### 🧪 Reproduce SOTA Results on SAMPLE
 
