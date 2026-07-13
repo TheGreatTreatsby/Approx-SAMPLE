@@ -29,7 +29,7 @@ The resulting dataset retains physical electromagnetic consistency while explici
   <img src="example/Approx SAMPLE-Complex/m2_synth_A_elevDeg_014_azCenter_18.985293283579836_2difft.png"/>
   <img src="example/Approx SAMPLE-Complex/m60_synth_A_elevDeg_015_azCenter_29.01557484299443_2difft.png"/>
 </div>
-## 🔬 Our Exploration on Approx SAMPLE
+### 🔬 Our Exploration on Approx SAMPLE
 
 We leverage **Approx SAMPLE** to iteratively upgrade the baseline ([ResNet18 + MMD](https://github.com/TheGreatTreatsby/SAMPLE_MMD)) from previous work. One of our evolved versions inserts a **Gradient Reversal Layer (GRL)** after the last two convolutional blocks to deliberately confuse cross-domain feature distributions. The model architecture is illustrated below:
 
@@ -48,9 +48,11 @@ We interpret this as strong evidence that:
 You can reproduce the following results by running:
 
 ```bash
-python resnet+MMD+GRL_for_SAMPLE.py
+python resnet+MMD+GRL_for_SAMPLE.py --config /path/to/your/secen1.yaml
+python resnet+MMD+GRL_for_SAMPLE.py --config /path/to/your/secen2.yaml
+python resnet+MMD+GRL_for_SAMPLE.py --config /path/to/your/secen3.yaml
 
-Scenario	Metric	Baseline [6] + GRL
-I	Min / Max / Avg±std	98.66 / 100.00 / 99.57 ± 0.31
-II	Min / Max / Avg±std	98.14 / 99.63 / 99.17 ± 0.40
-III	Min / Max / Avg±std	99.26 / 100.00 / 99.85 ± 0.18
+Scenario	        Accuracy	          resnet18+MMD+GRL
+I       	Min / Max / Avg±std	    98.66 / 100.00 / 99.57 ± 0.31
+II      	Min / Max / Avg±std   	98.14 / 99.63 / 99.17 ± 0.40
+III     	Min / Max / Avg±std   	99.26 / 100.00 / 99.85 ± 0.18
