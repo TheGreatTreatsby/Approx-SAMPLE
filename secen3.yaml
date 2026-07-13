@@ -1,0 +1,20 @@
+# 数据路径配置
+data:
+  real_data_path: '/home/liusir/PycharmProjects/pythonProject/SAMPLE/Data/SAMPLE/real_elev_14_16'
+  real_data_path_test: '/home/liusir/PycharmProjects/pythonProject/SAMPLE/Data/SAMPLE/real_elev_17'
+  sim_data_path: '/home/liusir/PycharmProjects/pythonProject/SAMPLE/Data/SAMPLE/synth'
+  save_dir: '/home/liusir/PycharmProjects/pythonProject/SAMPLE/New_paper/checkpoints/scenario3'
+  result_dir: '/home/liusir/PycharmProjects/pythonProject/SAMPLE/New_paper/result_txt/scenario3'
+
+# 训练参数配置
+training:
+  batch_size: 16
+  epochs: 100
+  lr: 0.000125
+  test_interval: 5
+  dropout_rate: 0
+  num_repeats: 20  # 重复实验次数
+
+# 模型配置
+model:
+  num_classes: 10
