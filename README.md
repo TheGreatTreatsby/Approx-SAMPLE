@@ -37,7 +37,7 @@ We leverage **Approx SAMPLE** to iteratively upgrade the baseline ([ResNet18 + M
   <img src="resnet18+MMD+GRL.png" width="600"/>
 </div>
 
-This simple yet effective design achieves **~75% accuracy** on Approx SAMPLE. More surprisingly, **without any pseudo-label denoising rules or handcrafted auxiliary features**, this model attains **state-of-the-art results** across multiple scenarios on the original SAMPLE dataset.
+This simple yet effective design achieves **~75% accuracy** on Approx SAMPLE. More surprisingly, **without any pseudo-label denoising rules or well-designed auxiliary features**, this model attains **state-of-the-art results** across multiple scenarios on the original SAMPLE dataset.
 
 We interpret this as strong evidence that:
 - **Strong domain-shift benchmarks** (like Approx SAMPLE) can **positively promote** cross-domain adaptation algorithms — the improvements learned to overcome severe shifts on Approx SAMPLE **transfer beneficially** to SAMPLE, where the domain gap is milder.
