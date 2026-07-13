@@ -29,3 +29,28 @@ The resulting dataset retains physical electromagnetic consistency while explici
   <img src="example/Approx SAMPLE-Complex/m2_synth_A_elevDeg_014_azCenter_18.985293283579836_2difft.png"/>
   <img src="example/Approx SAMPLE-Complex/m60_synth_A_elevDeg_015_azCenter_29.01557484299443_2difft.png"/>
 </div>
+## 🔬 Our Exploration on Approx SAMPLE
+
+We leverage **Approx SAMPLE** to iteratively upgrade the baseline ([ResNet18 + MMD](https://github.com/TheGreatTreatsby/SAMPLE_MMD)) from previous work. One of our evolved versions inserts a **Gradient Reversal Layer (GRL)** after the last two convolutional blocks to deliberately confuse cross-domain feature distributions. The model architecture is illustrated below:
+
+<div align=center>
+  <img src="resnet18+MMD+GRL.png" width="600"/>
+</div>
+
+This simple yet effective design achieves **~75% accuracy** on Approx SAMPLE. More surprisingly, **without any pseudo-label denoising rules or handcrafted auxiliary features**, this model attains **state-of-the-art results** across multiple scenarios on the original SAMPLE dataset.
+
+We interpret this as strong evidence that:
+- **Strong domain-shift benchmarks** (like Approx SAMPLE) can **positively promote** cross-domain adaptation algorithms — the improvements learned to overcome severe shifts on Approx SAMPLE **transfer beneficially** to SAMPLE, where the domain gap is milder.
+- Conversely, it further **corroborates the structural limitations of SAMPLE**: once the stylistic discrepancy is bridged, the highly-registered simulated–real pairs in SAMPLE behave as if drawn from the same distribution. This suggests that recognition algorithms may **implicitly rely on the registration shortcut** embedded in SAMPLE, rather than learning truly robust semantic features.
+
+### 🧪 Reproduce SOTA Results on SAMPLE
+
+You can reproduce the following results by running:
+
+```bash
+python resnet+MMD+GRL_for_SAMPLE.py
+
+Scenario	Metric	Baseline [6] + GRL
+I	Min / Max / Avg±std	98.66 / 100.00 / 99.57 ± 0.31
+II	Min / Max / Avg±std	98.14 / 99.63 / 99.17 ± 0.40
+III	Min / Max / Avg±std	99.26 / 100.00 / 99.85 ± 0.18
