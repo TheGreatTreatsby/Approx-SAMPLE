@@ -29,6 +29,7 @@ The resulting dataset retains physical electromagnetic consistency while explici
   <img src="example/Approx SAMPLE-Complex/m2_synth_A_elevDeg_014_azCenter_18.985293283579836_2difft.png"/>
   <img src="example/Approx SAMPLE-Complex/m60_synth_A_elevDeg_015_azCenter_29.01557484299443_2difft.png"/>
 </div>
+
 ### 🔬 Our Exploration on Approx SAMPLE
 
 We leverage **Approx SAMPLE** to iteratively upgrade the baseline ([ResNet18 + MMD](https://github.com/TheGreatTreatsby/SAMPLE_MMD)) from previous work. One of our evolved versions inserts a **Gradient Reversal Layer (GRL)** after the last two convolutional blocks to deliberately confuse cross-domain feature distributions. The model architecture is illustrated below:
