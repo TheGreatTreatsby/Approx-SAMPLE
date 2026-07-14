@@ -411,6 +411,11 @@ def train_single_run(config, run_id):
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
+    # img_transform = transforms.Compose([
+    # transforms.Resize(256),
+    # transforms.CenterCrop(224),
+    # transforms.ToTensor(),
+    # transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
 
     print(f"\n{'=' * 60}")
     print(f"运行 {run_id}: 开始训练")
