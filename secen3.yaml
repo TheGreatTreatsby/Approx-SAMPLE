@@ -21,6 +21,11 @@ weights:
   mmd_weight: 0.75       # MMD损失权重
   domain_weight: 0.01   # 域对抗损失权重
   
+#weights:
+#  class_weight: 1.0      # 分类损失权重
+#  mmd_weight: 0.5       # MMD损失权重
+#  domain_weight: 0.015   # 域对抗损失权重
+  
 # 模型配置
 model:
   num_classes: 10
