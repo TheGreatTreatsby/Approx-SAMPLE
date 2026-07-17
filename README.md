@@ -50,6 +50,7 @@ We interpret this as strong evidence that:
 | I | Synthetic (14°–17°) + Measured (14°–17°) | Measured (14°–17°) |
 | II | Synthetic (14°–16°) + Measured (17°) | Measured (17°) |
 | III | Synthetic (14°–17°) + Measured (14°–16°) | Measured (17°) |
+
 You can reproduce the following results by running:
 
 ```bash
