@@ -229,7 +229,7 @@ class SARDomainAdaptationResNet(nn.Module):
 
 
 class Trainer:
-    def __init__(self, model, device='cuda', lr=0.001):
+    def __init__(self, model, device='cuda', lr=0.001, weights=None):
         self.model = model.to(device)
         self.device = device
 
@@ -246,11 +246,15 @@ class Trainer:
         self.class_criterion = nn.CrossEntropyLoss()
         self.domain_criterion = nn.BCEWithLogitsLoss()
 
-        self.weights = {
-            'class': 1.0,
-            'mmd': 1.0,
-            'domain': 0.01
-        }
+        # 使用传入的权重或默认值
+        if weights is None:
+            self.weights = {
+                'class': 1.0,
+                'mmd': 0.75,
+                'domain': 0.01
+            }
+        else:
+            self.weights = weights
 
     def train_step(self, sim_data, sim_labels, real_data):
         """单步训练"""
@@ -396,6 +400,14 @@ def train_single_run(config, run_id):
     num_classes = config['model']['num_classes']
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
+    # 读取损失权重配置（如果存在）
+    weights = {
+        'class': config['weights']['class_weight'],
+        'mmd': config['weights']['mmd_weight'],
+        'domain': config['weights']['domain_weight']
+    }
+
+
     # 为每次运行创建独立的子目录
     run_save_dir = os.path.join(save_dir, f'run_{run_id}')
     run_result_dir = os.path.join(result_dir, f'run_{run_id}')
@@ -407,20 +419,19 @@ def train_single_run(config, run_id):
 
     # 数据预处理
     img_transform = transforms.Compose([
-        transforms.Resize((224, 224)),
+        transforms.RandomHorizontalFlip(p=1.0),  # p=1.0 即100%概率
+        transforms.RandomRotation(degrees=(-90, -90)),  # 固定旋转-90°
+        transforms.Resize(224),
+        # transforms.CenterCrop(224),
         transforms.ToTensor(),
+
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
-    # img_transform = transforms.Compose([
-    #     transforms.Resize(256),
-    #     transforms.CenterCrop(224),
-    #     transforms.ToTensor(),
-    #     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    # ])
 
     print(f"\n{'=' * 60}")
     print(f"运行 {run_id}: 开始训练")
     print(f"设备: {device}")
+    print(f"损失权重: class={weights['class']}, mmd={weights['mmd']}, domain={weights['domain']}")
     print(f"{'=' * 60}")
 
     # 加载数据集
@@ -453,7 +464,7 @@ def train_single_run(config, run_id):
         dropout_rate=dropout_rate
     )
 
-    trainer = Trainer(model, device=device, lr=lr)
+    trainer = Trainer(model, device=device, lr=lr, weights=weights)
 
     # 训练循环
     best_accuracy = 0.0
@@ -559,6 +570,14 @@ def main(config):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     result_file = os.path.join(result_dir, f'experiment_results_{timestamp}.txt')
 
+    # 读取权重配置
+
+    weights = config['weights']
+    weights_str = f"  class_weight: {weights['class_weight']}\n" \
+                  f"  mmd_weight: {weights['mmd_weight']}\n" \
+                  f"  domain_weight: {weights['domain_weight']}"
+
+
     # 写入实验信息
     with open(result_file, 'w', encoding='utf-8') as f:
         f.write("=" * 80 + "\n")
@@ -574,6 +593,7 @@ def main(config):
         f.write(f"  学习率: {config['training']['lr']}\n")
         f.write(f"  Dropout率: {config['training']['dropout_rate']}\n")
         f.write(f"  重复次数: {num_repeats}\n")
+        f.write(f"  损失权重:\n{weights_str}\n")
         f.write("=" * 80 + "\n\n")
         f.write(f"{'运行编号':<10} {'最佳准确率(%)':<15} {'最终准确率(%)':<15}\n")
         f.write("-" * 40 + "\n")
@@ -662,8 +682,11 @@ def main(config):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='SAR Domain Adaptation Training with Multiple Runs')
-    parser.add_argument('--config', type=str, default=r'/home/liusir/PycharmProjects/pythonProject/SAMPLE/New_paper/secen3.yaml', help='Path to YAML config file')
+
+    parser.add_argument('--config', type=str, default=r'secen1.yaml', help='Path to YAML config file')
     args = parser.parse_args()
 
     config = load_config(args.config)
     main(config)
+
+
