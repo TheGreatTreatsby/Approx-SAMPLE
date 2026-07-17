@@ -419,12 +419,8 @@ def train_single_run(config, run_id):
 
     # 数据预处理
     img_transform = transforms.Compose([
-        transforms.RandomHorizontalFlip(p=1.0),  # p=1.0 即100%概率
-        transforms.RandomRotation(degrees=(-90, -90)),  # 固定旋转-90°
         transforms.Resize(224),
-        # transforms.CenterCrop(224),
         transforms.ToTensor(),
-
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
 
