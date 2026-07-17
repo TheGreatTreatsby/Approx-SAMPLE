@@ -45,15 +45,11 @@ We interpret this as strong evidence that:
 - Conversely, it further **corroborates the structural limitations of SAMPLE**: once the stylistic discrepancy is bridged, the highly-registered simulated–real pairs in SAMPLE behave as if drawn from the same distribution, lending further support to the view that recognition algorithms benefit to a considerable extent from the registration shortcut inherent in SAMPLE.
 
 ### 🧪 Reproduce SOTA Results on SAMPLE
-+------------+-----------------------------------------------------+---------------------+
-| Scenario   | Train Set (labeled Synthetic + unlabeled Measured)  | Test Set            |
-+------------+-----------------------------------------------------+---------------------+
-| I          | Synthetic (14°–17°) + Measured (14°–17°)            | Measured (14°–17°)  |
-+------------+-----------------------------------------------------+---------------------+
-| II         | Synthetic (14°–16°) + Measured (17°)                | Measured (17°)      |
-+------------+-----------------------------------------------------+---------------------+
-| III        | Synthetic (14°–17°) + Measured (14°–16°)            | Measured (17°)      |
-+------------+-----------------------------------------------------+---------------------+
+| Scenario | Train Set (labeled Synthetic + unlabeled Measured) | Test Set |
+|:---------|:----------------------------------------------------|:---------|
+| I | Synthetic (14°–17°) + Measured (14°–17°) | Measured (14°–17°) |
+| II | Synthetic (14°–16°) + Measured (17°) | Measured (17°) |
+| III | Synthetic (14°–17°) + Measured (14°–16°) | Measured (17°) |
 You can reproduce the following results by running:
 
 ```bash
