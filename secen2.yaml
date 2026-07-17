@@ -14,7 +14,13 @@ training:
   test_interval: 5
   dropout_rate: 0.2
   num_repeats: 20  # 重复实验次数
-
+  
+# 损失权重配置
+weights:
+  class_weight: 1.0      # 分类损失权重
+  mmd_weight: 0.75       # MMD损失权重
+  domain_weight: 0.01   # 域对抗损失权重
+  
 # 模型配置
 model:
   num_classes: 10
