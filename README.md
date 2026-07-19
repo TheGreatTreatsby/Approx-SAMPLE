@@ -59,6 +59,6 @@ python resnet+MMD+GRL_for_SAMPLE.py --config /path/to/your/secen2.yaml
 python resnet+MMD+GRL_for_SAMPLE.py --config /path/to/your/secen3.yaml
 
 Scenario	        Accuracy	          resnet18+MMD+GRL
-I       	Min / Max / Avg±std	    98.66 / 100.00 / 99.57 ± 0.31
-II      	Min / Max / Avg±std   	98.14 / 99.63 / 99.17 ± 0.40
-III     	Min / Max / Avg±std   	99.26 / 100.00 / 99.85 ± 0.18
+I       	Min / Max / Avg±std	    99.48 / 100.00 / 99.75 ± 0.16
+II      	Min / Max / Avg±std   	98.33 / 100.00 / 99.20 ± 0.42
+III     	Min / Max / Avg±std   	99.62 / 100.00 / 99.91 ± 0.11
