@@ -25,9 +25,9 @@ The resulting dataset retains physical electromagnetic consistency while explici
 - **Open-source & white-box**: Full construction pipeline, desktop-grade simulation (CST), no HPC require
 > **🗂️ Note**: The full dataset will be publicly released upon paper publication. For now, please refer to the [1800_images_10_classes_3_configurations.zip](./1800_images_10_classes_3_configurations.zip) for sample data.
 <div align=center>
-  <img src="example/Approx SAMPLE-Complex/bmp2_synth_A_elevDeg_016_azCenter_6.004928912572714_2difft.png"/>
-  <img src="example/Approx SAMPLE-Complex/m2_synth_A_elevDeg_014_azCenter_18.985293283579836_2difft.png"/>
-  <img src="example/Approx SAMPLE-Complex/m60_synth_A_elevDeg_015_azCenter_29.01557484299443_2difft.png"/>
+  <img src="example/bmp2_synth_A_elevDeg_016_azCenter_6.004928912572714_2difft.png"/>
+  <img src="example/m2_synth_A_elevDeg_014_azCenter_18.985293283579836_2difft.png"/>
+  <img src="example/m60_synth_A_elevDeg_015_azCenter_29.01557484299443_2difft.png"/>
 </div>
 
 ### 🔬 Our Exploration on Approx SAMPLE and SAMPLE
